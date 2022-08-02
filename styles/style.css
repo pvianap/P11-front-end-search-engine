@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;500;600;700&display=swap');
+* {
+  --primary-color: #3282f7;
+  --seconday-color: #68d9a4;
+  --tertiary-color: #ed6454;
+}
+
+.tagsContainer button {
+  border-radius: 5px;
+  width: 107px;
+  height: 37px;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.dropdown button {
+  height: 69px;
+  width: 170px;
+  font-family: Lato;
+  font-weight: 700;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+  border-radius: 5px;
+}
+
+i {
+  margin-left: auto;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  font-size: 18px;
+}
+
+.btn-success {
+  background-color: var(--seconday-color);
+}
+
+.btn-danger {
+  background-color: var(--tertiary-color);
+}
+
+.dropdown-toggle::after {
+  display: none;
+}
