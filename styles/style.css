@@ -5,6 +5,10 @@
   --tertiary-color: #ed6454;
 }
 
+h1 {
+  color: #d04f4f;
+}
+
 .tagsContainer button {
   border-radius: 5px;
   width: 107px;

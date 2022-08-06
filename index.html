@@ -13,98 +13,113 @@
     <link rel="stylesheet" href="styles/style.css" />
     <title>Les petits plats</title>
   </head>
-  <body>
-    <header>
-      <img src="/assets/favicon.png" alt="logo" />
-      <h1>Les petits plats</h1>
+  <body class="container">
+    <!-- HEADER -->
+    <header class="d-flex flex-column align-items-center">
+      <img src="/assets/favicon.png" alt="logo" class="" />
+      <h1 class="">Les petits plats</h1>
     </header>
-    <input
-      type="text"
-      placeholder="Rechercher une recette"
-      id="searchBar"
-      class="col-12"
-    />
-    <div class="tagsContainer">
-      <button class="btn btn-primary btn-xs" type="button">
+    <!-- SEARCH BAR -->
+    <form class="d-flex mb-4">
+      <input
+        class="form-control me-2"
+        type="search"
+        placeholder="Search"
+        aria-label="Search"
+      />
+      <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+
+    <!-- TAGS -->
+    <div class="row tagsContainer mb-2">
+      <button class="col-12 btn btn-primary btn-xs me-2" type="button">
+        Coco<i class="fa-solid fa-circle-x"></i>
+      </button>
+      <button class="col-12 btn btn-primary btn-xs me-2" type="button">
+        Coco<i class="fa-solid fa-circle-x"></i>
+      </button>
+      <button class="col-12 btn btn-primary btn-xs me-2" type="button">
         Coco<i class="fa-solid fa-circle-x"></i>
       </button>
     </div>
-
-    <nav class="col navbar navbar-expand-sm navbar-dark">
-      <ul class="navbar-nav">
-        <li nav-item>
-          <div class="dropdown">
-            <button
-              class="btn btn-primary dropdown-toggle"
-              type="button"
-              id="dropdownMenuIngredients"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              Ingredients<i class="fa-solid fa-angle-down"></i>
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuIngredients">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
-            </ul>
-          </div>
-        </li>
-        <li class="nav-item">
-          <div class="dropdown">
-            <button
-              class="btn btn-success dropdown-toggle"
-              type="button"
-              id="dropdownMenuAppareils"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              Appareils<i class="fa-solid fa-angle-down"></i>
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuAppareils">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
-            </ul>
-          </div>
-        </li>
-      </ul>
-
-      <div class="dropdown">
-        <button
-          class="btn btn-danger dropdown-toggle"
-          type="button"
-          id="dropdownMenuUstensiles"
-          data-bs-toggle="dropdown"
-          aria-expanded="false"
-        >
-          Ustensiles<i class="fa-solid fa-angle-down"></i>
-        </button>
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenuUstensiles">
-          <li><a class="dropdown-item" href="#">Action</a></li>
-          <li><a class="dropdown-item" href="#">Another action</a></li>
-          <li><a class="dropdown-item" href="#">Something else here</a></li>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-sm navbar-light bg-light">
+      <div class="container-fluid">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <div class="dropdown">
+              <button
+                class="btn btn-primary dropdown-toggle"
+                type="button"
+                id="dropdownMenuIngredients"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Ingredients<i class="fa-solid fa-angle-down"></i>
+              </button>
+              <ul
+                class="dropdown-menu"
+                aria-labelledby="dropdownMenuIngredients"
+              ></ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <div class="dropdown">
+              <button
+                class="btn btn-success dropdown-toggle"
+                type="button"
+                id="dropdownMenuAppareils"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Appareils<i class="fa-solid fa-angle-down"></i>
+              </button>
+              <ul
+                class="dropdown-menu"
+                aria-labelledby="dropdownMenuAppliances"
+              ></ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <div class="dropdown">
+              <button
+                class="btn btn-danger dropdown-toggle"
+                type="button"
+                id="dropdownMenuUstensiles"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Ustensiles<i class="fa-solid fa-angle-down"></i>
+              </button>
+              <ul
+                class="dropdown-menu"
+                aria-labelledby="dropdownMenuUstensils"
+              ></ul>
+            </div>
+          </li>
         </ul>
       </div>
     </nav>
+
+    <!-- RECIPES -->
     <section class="recipesContainer expand-lg">
-      <div class="card">
+      <div class="card col-3">
         <div class="row">
           <img src="" alt="" />
         </div>
         <div class="row card-body">
-          <div class="col-6">
+          <div class="col">
             <h5 class="row card-title">Limonade de Coco</h5>
-            <p class="row">
-              Limonade de Coco 10 min Lait de coco: 400ml Jus de citron: 2 Créme
-              de coco: 4 cuillères Sucre: 20g Glaçons: 2 Mettre les glaçons à
-              votre goût dans le blender, ajouter le lait, la crème de coco, le
-              jus de 2 citrons et le sucre. Mixer jusqu'à avoir la consistence
-              désirée.
-            </p>
+            <ul class="list-unstyled">
+              <li>Lait de coco: 400ml</li>
+              <li>Jus de citron: 2</li>
+              <li>Créme de coco: 4 cuillères</li>
+              <li>Sucre: 20g</li>
+              <li>Glaçons: 2</li>
+            </ul>
           </div>
           <div class="col-6">
-            <div class="row">10 min</div>
+            <div class="row d-flex justify-content-end">10 min</div>
             <p class="row card-text">
               Mettre les glaçons à votre goût dans le blender, ajouter le lait,
               la crème de coco, le jus de 2 citrons et le sucre. Mixer jusqu'à
@@ -124,5 +139,6 @@
       src="https://kit.fontawesome.com/f9b63ccef5.js"
       crossorigin="anonymous"
     ></script>
+    <script type="module" src="./scripts/pages/index.js"></script>
   </body>
 </html>
