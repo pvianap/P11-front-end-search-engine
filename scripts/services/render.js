@@ -7,8 +7,38 @@ class Render {
     this.tags(Object.values(tags));
   }
 
-  recipes(array) {}
+  // RENDER RECIPES
+  recipes(array) {
+    const target = document.querySelector('.recipesContainer');
+    target.innerHTML = '';
+    array.forEach((e) => {
+      const element = document.createElement('div');
 
+      const listIngredients = [];
+      e.ingredients.forEach((e) => {
+        listIngredients.push(`<li>${Object.values(e).join(' ')}</li>`);
+      });
+
+      const content = `<div class="row card-body">
+      <div class="col">
+        <h5 class="row card-title">${e.name}</h5>
+        <ul class="list-unstyled listIngredients">
+        ${listIngredients.join('')}
+        </ul>
+      </div>
+      <div class="col-6">
+        <div class="row d-flex justify-content-end">${e.time}min</div>
+        <p class="row card-text">${e.description}
+        </p>
+      </div>
+    </div>`;
+      element.innerHTML = content;
+
+      target.appendChild(element);
+    });
+  }
+
+  // RENDER BUTTONS CONTENT
   buttons(array) {
     const targets = [
       'dropdownMenuIngredients',
@@ -34,6 +64,8 @@ class Render {
       });
     });
   }
+
+  // RENDER TAGS CONTENT
   tags(array) {
     const styles = ['btn-primary', 'btn-success', 'btn-danger'];
     const target = document.querySelector('.tagsContainer');
