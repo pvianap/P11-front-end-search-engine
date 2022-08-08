@@ -88,7 +88,7 @@ class Render {
           type: 'button',
         });
         tag.innerText = e;
-        // listeners.tags(tag, e);
+        listeners.tags(tag, e);
         target.appendChild(tag);
       });
     });

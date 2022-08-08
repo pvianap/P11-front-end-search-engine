@@ -1,7 +1,10 @@
 import { controller } from './controller.js';
 
 class Listeners {
-  constructor() {}
+  constructor() {
+    this.searchBar();
+  }
+
   addAll() {
     this.buttons();
     this.tags();
@@ -14,14 +17,25 @@ class Listeners {
     });
   }
   tags(tag, e) {
-    // console.log(tag);
-    // console.log(e);
-    // // li.addEventListener('click', function () {
-    // //   controller._tagArray.ingredients.pop(e.toLowerCase());
-    // //   controller.refresh();
-    // // });
+    tag.addEventListener('click', function () {
+      controller._tagArray.ingredients.pop(e.toLowerCase());
+
+      controller.refresh();
+    });
   }
-  searchBar() {}
+  searchBar() {
+    const search = document.querySelector('input');
+    search.addEventListener('keyup', (e) => {
+      const query = e.target.value;
+
+      if (query.toLowerCase().trim().length > 2) {
+        controller.searchFilter([query.toLowerCase().trim()]);
+      } else {
+        controller._searchAtive = false;
+        controller.refresh();
+      }
+    });
+  }
 }
 
 export const listeners = new Listeners();

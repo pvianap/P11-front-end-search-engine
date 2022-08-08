@@ -8,14 +8,14 @@ class Controller {
       ustensils: [],
       appliances: [],
     };
-    console.log(this._tagArray[1]);
+
     this._recipeArray = data.getRecipes();
     this._buttonArray = [data._ingredients, data._appliance, data._ustensiles];
+    this._searchAtive = false;
     this.refresh();
   }
 
   recipeFilter(data, tags) {
-    tags = [].concat(tags.ingredients, tags.ustensils, tags.appliances);
     return data.filter((value) =>
       tags.every((tag) => JSON.stringify(value).toLowerCase().includes(tag))
     );
@@ -23,7 +23,19 @@ class Controller {
 
   refresh() {
     // REFRESH RECIPE ARRAY
-    this._recipeArray = this.recipeFilter(data.getRecipes(), this._tagArray);
+    const allTags = [].concat(
+      this._tagArray.ingredients,
+      this._tagArray.ustensils,
+      this._tagArray.appliances
+    );
+
+    if (this._searchAtive) {
+      // DO NOT RENEW DATA
+      this._recipeArray = this.recipeFilter(this._recipeArray, allTags);
+    } else {
+      // RENEW DATA
+      this._recipeArray = this.recipeFilter(data.getRecipes(), allTags);
+    }
 
     // REFRESH BUTTONS
     this._buttonArray = [
@@ -36,7 +48,16 @@ class Controller {
     render.all(this._recipeArray, this._buttonArray, this._tagArray);
   }
 
-  addTag() {}
+  searchFilter(query) {
+    this._searchAtive = true;
+    controller.refresh();
+    controller._recipeArray = controller.recipeFilter(
+      controller._recipeArray,
+      query
+    );
+    controller.refresh();
+    console.log(controller._tagArray);
+  }
 }
 
 export const controller = new Controller(data);
