@@ -1,9 +1,12 @@
+import { listeners } from './listeners.js';
+import { controller } from './controller.js';
+
 class Render {
   constructor() {}
 
   all(recipes, buttons, tags) {
     this.recipes(recipes);
-    this.buttons(buttons);
+    this.buttons(buttons, tags);
     this.tags(Object.values(tags));
   }
 
@@ -39,7 +42,7 @@ class Render {
   }
 
   // RENDER BUTTONS CONTENT
-  buttons(array) {
+  buttons(array, tagArray) {
     const targets = [
       'dropdownMenuIngredients',
       'dropdownMenuAppliances',
@@ -52,15 +55,18 @@ class Render {
       );
       target.innerHTML = '';
       list.forEach((e) => {
-        const item = document.createElement('li');
-        const tag = document.createElement('a');
-        tag.innerText = e;
-        Object.assign(tag, {
-          href: '#',
-          className: 'dropdown-item',
-        });
-        item.appendChild(tag);
-        target.appendChild(item);
+        if (!JSON.stringify(tagArray).toLowerCase().includes(e.toLowerCase())) {
+          const item = document.createElement('li');
+          const content = document.createElement('a');
+          content.innerText = e;
+          Object.assign(content, {
+            href: '#',
+            className: 'dropdown-item',
+          });
+          item.appendChild(content);
+          listeners.buttons(item, e);
+          target.appendChild(item);
+        }
       });
     });
   }
@@ -70,8 +76,10 @@ class Render {
     const styles = ['btn-primary', 'btn-success', 'btn-danger'];
     const target = document.querySelector('.tagsContainer');
     target.innerHTML = '';
+
     array.forEach((type, i) => {
       const style = styles[i];
+
       type.forEach((e) => {
         const tag = document.createElement('button');
         Object.assign(tag, {
@@ -79,6 +87,7 @@ class Render {
           type: 'button',
         });
         tag.innerText = e;
+        // listeners.tags(tag, e);
         target.appendChild(tag);
       });
     });

@@ -4,10 +4,11 @@ import { render } from './render.js';
 class Controller {
   constructor(data) {
     this._tagArray = {
-      ingredients: ['coco', 'tomate'],
-      ustensils: ['cocotte'],
-      appliances: [],
+      ingredients: ['ananas', 'bananes'],
+      ustensils: [],
+      appliances: ['verres'],
     };
+    console.log(this._tagArray[1]);
     this._recipeArray = data.getRecipes();
     this._buttonArray = [data._ingredients, data._appliance, data._ustensiles];
     this.refresh();
@@ -23,15 +24,19 @@ class Controller {
   refresh() {
     // REFRESH RECIPE ARRAY
     this._recipeArray = this.recipeFilter(data.getRecipes(), this._tagArray);
+
     // REFRESH BUTTONS
     this._buttonArray = [
       data.getIngredients(this._recipeArray),
       data.getAppliance(this._recipeArray),
       data.getUstensiles(this._recipeArray),
     ];
+
     // REFRESH PAGE
     render.all(this._recipeArray, this._buttonArray, this._tagArray);
   }
+
+  addTag() {}
 }
 
 export const controller = new Controller(data);

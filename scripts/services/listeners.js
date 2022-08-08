@@ -1,14 +1,26 @@
+import { controller } from './controller.js';
+
 class Listeners {
-  constructor() {
-    this.addAll();
-  }
+  constructor() {}
   addAll() {
     this.buttons();
     this.tags();
     this.searchBar();
   }
-  buttons() {}
-  tags() {}
+  buttons(li, e) {
+    li.addEventListener('click', function () {
+      controller._tagArray.ingredients.push(e.toLowerCase());
+      controller.refresh();
+    });
+  }
+  tags(tag, e) {
+    // console.log(tag);
+    // console.log(e);
+    // // li.addEventListener('click', function () {
+    // //   controller._tagArray.ingredients.pop(e.toLowerCase());
+    // //   controller.refresh();
+    // // });
+  }
   searchBar() {}
 }
 
