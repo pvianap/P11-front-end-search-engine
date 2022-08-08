@@ -64,7 +64,8 @@ class Render {
             className: 'dropdown-item',
           });
           item.appendChild(content);
-          listeners.buttons(item, e);
+
+          listeners.buttons(item, e, i);
           target.appendChild(item);
         }
       });

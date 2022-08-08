@@ -4,9 +4,9 @@ import { render } from './render.js';
 class Controller {
   constructor(data) {
     this._tagArray = {
-      ingredients: ['ananas', 'bananes'],
+      ingredients: [],
       ustensils: [],
-      appliances: ['verres'],
+      appliances: [],
     };
     console.log(this._tagArray[1]);
     this._recipeArray = data.getRecipes();

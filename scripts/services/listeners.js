@@ -7,9 +7,9 @@ class Listeners {
     this.tags();
     this.searchBar();
   }
-  buttons(li, e) {
+  buttons(li, e, i) {
     li.addEventListener('click', function () {
-      controller._tagArray.ingredients.push(e.toLowerCase());
+      Object.values(controller._tagArray)[i].push(e.toLowerCase());
       controller.refresh();
     });
   }
