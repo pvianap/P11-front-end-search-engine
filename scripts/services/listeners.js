@@ -19,12 +19,13 @@ class Listeners {
   tags(tag, e) {
     tag.addEventListener('click', function () {
       console.log(e);
-      console.log(Object.values(controller._tagArray)[0]);
 
-      controller._tagArray[0] = Object.values(controller._tagArray)[0].filter(
-        (el) => el !== e
-      );
-      console.log(Object.values(controller._tagArray)[0]);
+      Object.keys(controller._tagArray).forEach((type) => {
+        console.log(controller._tagArray[type]);
+        controller._tagArray[type] = controller._tagArray[type].filter(
+          (el) => el !== e
+        );
+      });
       console.log(controller._tagArray);
 
       // controller._tagArray.ingredients.pop(e.toLowerCase());
