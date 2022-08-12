@@ -11,7 +11,7 @@ class Controller {
 
     this._recipeArray = data.getRecipes();
     this._buttonArray = [data._ingredients, data._appliance, data._ustensiles];
-    this._searchAtive = false;
+
     this.refresh();
   }
 
@@ -29,13 +29,7 @@ class Controller {
       this._tagArray.appliances
     );
 
-    if (this._searchAtive) {
-      // DO NOT RENEW DATA
-      this._recipeArray = this.recipeFilter(this._recipeArray, allTags);
-    } else {
-      // RENEW DATA
-      this._recipeArray = this.recipeFilter(data.getRecipes(), allTags);
-    }
+    this._recipeArray = this.recipeFilter(data.getRecipes(), allTags);
 
     // REFRESH BUTTONS
     this._buttonArray = [
@@ -49,14 +43,24 @@ class Controller {
   }
 
   searchFilter(query) {
-    this._searchAtive = true;
     controller.refresh();
     controller._recipeArray = controller.recipeFilter(
       controller._recipeArray,
       query
     );
-    controller.refresh();
-    console.log(controller._tagArray);
+    render.all(this._recipeArray, this._buttonArray, this._tagArray);
+  }
+  searchButton(query, index) {
+    console.log(this._buttonArray);
+    const array = [];
+    array[index] = this._buttonArray[index].filter((e) =>
+      e.toLowerCase().includes(query)
+    );
+    console.log(array);
+    console.log(
+      this._buttonArray[index].filter((e) => e.toLowerCase().includes(query))
+    );
+    render.buttons(array, this._tagArray);
   }
 }
 

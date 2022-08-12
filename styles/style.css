@@ -51,3 +51,7 @@ i {
 .dropdown-toggle::after {
   display: none;
 }
+
+.searchButtonInput {
+  position: block;
+}

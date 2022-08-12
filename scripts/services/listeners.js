@@ -3,6 +3,7 @@ import { controller } from './controller.js';
 class Listeners {
   constructor() {
     this.searchBar();
+    this.searchButton();
   }
 
   addAll() {
@@ -18,17 +19,11 @@ class Listeners {
   }
   tags(tag, e) {
     tag.addEventListener('click', function () {
-      console.log(e);
-
       Object.keys(controller._tagArray).forEach((type) => {
-        console.log(controller._tagArray[type]);
         controller._tagArray[type] = controller._tagArray[type].filter(
           (el) => el !== e
         );
       });
-      console.log(controller._tagArray);
-
-      // controller._tagArray.ingredients.pop(e.toLowerCase());
 
       controller.refresh();
     });
@@ -39,12 +34,30 @@ class Listeners {
       const query = e.target.value;
 
       if (query.toLowerCase().trim().length > 2) {
+        controller.refresh();
         controller.searchFilter([query.toLowerCase().trim()]);
       } else {
-        controller._searchAtive = false;
         controller.refresh();
       }
     });
+  }
+  searchButton() {
+    const search = document.querySelectorAll('.searchButtonInput');
+    search.forEach((input, index) =>
+      input.addEventListener('keyup', (e) => {
+        const query = e.target.value.toLowerCase();
+        controller.searchButton(query, index);
+      })
+    );
+
+    // search.addEventListener('keyup', (e) => {
+    //   const query = e.target.value.toLowerCase();
+
+    //   const array = controller._buttonArray[0].filter((e) =>
+    //     e.toLowerCase().includes(query)
+    //   );
+    //   const tagArray = controller._tagArray.ingredients;
+    // });
   }
 }
 
