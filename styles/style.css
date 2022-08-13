@@ -1,12 +1,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;500;600;700&display=swap');
 * {
   --primary-color: #3282f7;
-  --seconday-color: #68d9a4;
+  --secondary-color: #68d9a4;
   --tertiary-color: #ed6454;
 }
 
 h1 {
   color: #d04f4f;
+}
+.searchBarContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 5px;
+  max-width: 1240px;
+}
+
+.searchBarInput {
+  background-color: #e7e7e7;
+  height: 69px;
+}
+
+.fa-magnifying-glass {
+  position: block;
+  font-size: 32px;
+  margin-left: -60px;
 }
 
 .tagsContainer button {
@@ -18,7 +36,10 @@ h1 {
   font-size: 14px;
   font-weight: 700;
 }
-
+.buttonNavBar {
+  display: flex;
+  list-style: none;
+}
 .dropdown button {
   height: 69px;
   width: 170px;
@@ -41,7 +62,7 @@ i {
 }
 
 .btn-success {
-  background-color: var(--seconday-color);
+  background-color: var(--secondary-color);
 }
 
 .btn-danger {
@@ -54,4 +75,124 @@ i {
 
 .searchButtonInput {
   position: block;
+  background-color: transparent;
+  color: white;
+  border: none;
+
+  margin-bottom: 27px;
+}
+
+.searchButtonInput:focus {
+  border: none;
+  outline: none;
+}
+
+.searchButtonInput:focus::placeholder {
+  color: transparent;
+}
+
+.searchButtonInput::placeholder {
+  color: white;
+}
+
+/* New buttons */
+
+.link {
+  cursor: pointer;
+  list-style: none;
+}
+
+.dropdown.active > .link,
+.link:hover {
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  position: absolute;
+  left: 0;
+  top: calc(100% + 0.25rem);
+  background-color: white;
+  padding: 0.75rem;
+  border-radius: 0.25rem;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-10px);
+  transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
+}
+
+.dropdown.active > .link + .dropdown-menu {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.contentGrid {
+  display: grid;
+  color: white;
+}
+
+.nav-button:nth-child(1) .contentGrid {
+  background-color: var(--primary-color);
+}
+
+.nav-button:nth-child(2) .contentGrid {
+  background-color: var(--tertiary-color);
+}
+
+.nav-button:nth-child(3) .contentGrid {
+  background-color: var(--secondary-color);
+}
+
+.dropdown-links {
+  gap: 0.25rem;
+  display: grid;
+  grid-template-columns: repeat(3, max-content);
+}
+
+/* RECIPE CARDS */
+.card {
+  background-color: #3282f7;
+  width: 380px;
+  height: 364px;
+}
+
+.imgCard {
+  height: 178px;
+  background-color: #c7bebe;
+}
+
+.card-body {
+  background-color: #e7e7e7;
+  height: 186px;
+  width: 100%;
+  margin: 0;
+}
+
+.card-body h5 {
+  font-family: lato;
+  font-size: 18px;
+}
+
+.card-body .listIngredients {
+  font-size: 12px;
+  font-weight: 700;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-body .card-text {
+  font-size: 12px;
+  font-weight: 400;
+  display: -webkit-box;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

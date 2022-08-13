@@ -16,6 +16,28 @@ class Controller {
   }
 
   recipeFilter(data, tags) {
+    console.log([data[0].name, data[0].ingredients]);
+    console.log(
+      JSON.stringify([
+        data[0].name,
+        ...data[0].ingredients,
+        data[0].description,
+      ])
+    );
+    return data.filter((value) =>
+      tags.every((tag) =>
+        JSON.stringify([value.name, ...value.ingredients, value.description])
+          .toLowerCase()
+          .includes(tag)
+      )
+    );
+
+    // data.filter((value) =>
+    //   tags.every((tag) => JSON.stringify(value).toLowerCase().includes(tag))
+    // );
+  }
+
+  recipeFilterTags(data, tags) {
     return data.filter((value) =>
       tags.every((tag) => JSON.stringify(value).toLowerCase().includes(tag))
     );
@@ -29,7 +51,7 @@ class Controller {
       this._tagArray.appliances
     );
 
-    this._recipeArray = this.recipeFilter(data.getRecipes(), allTags);
+    this._recipeArray = this.recipeFilterTags(data.getRecipes(), allTags);
 
     // REFRESH BUTTONS
     this._buttonArray = [
