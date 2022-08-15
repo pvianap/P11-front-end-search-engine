@@ -27,10 +27,6 @@ class Render {
         );
       });
 
-      // e.ingredients.forEach((e) => {
-      //   listIngredients.push(`<li>${Object.values(e).join(' ')}</li>`);
-      // });
-
       const content = `
       <img src="..." class="card-img-top imgCard" alt="...">
       <div class="row card-body">

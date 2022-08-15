@@ -50,15 +50,6 @@ class Listeners {
         controller.searchButton(query, index);
       })
     );
-
-    // search.addEventListener('keyup', (e) => {
-    //   const query = e.target.value.toLowerCase();
-
-    //   const array = controller._buttonArray[0].filter((e) =>
-    //     e.toLowerCase().includes(query)
-    //   );
-    //   const tagArray = controller._tagArray.ingredients;
-    // });
   }
   dropdownButton() {
     document.addEventListener('click', (e) => {

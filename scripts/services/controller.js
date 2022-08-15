@@ -16,14 +16,6 @@ class Controller {
   }
 
   recipeFilter(data, tags) {
-    console.log([data[0].name, data[0].ingredients]);
-    console.log(
-      JSON.stringify([
-        data[0].name,
-        ...data[0].ingredients,
-        data[0].description,
-      ])
-    );
     return data.filter((value) =>
       tags.every((tag) =>
         JSON.stringify([value.name, ...value.ingredients, value.description])
@@ -31,10 +23,6 @@ class Controller {
           .includes(tag)
       )
     );
-
-    // data.filter((value) =>
-    //   tags.every((tag) => JSON.stringify(value).toLowerCase().includes(tag))
-    // );
   }
 
   recipeFilterTags(data, tags) {
