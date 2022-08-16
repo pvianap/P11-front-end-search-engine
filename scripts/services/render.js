@@ -32,11 +32,11 @@ class Render {
       const content = `
       <div class="card-img-top imgCard" alt="..."></div>
       <div class="row  card-body">
-        <div class="row flex-nowrap descriptionHeader "><h5 class="col-8">${
+        <div class="flex-nowrap descriptionHeader "><h5 class="col-8">${
           recipe.name
-        }</h5> <i class="fa-regular fa-clock"></i> <p>${
+        }</h5> <i class="fa-regular fa-clock"></i><p>${
         recipe.time
-      }min</p></div>
+      } min</p></div>
         <div class="col-6 ps-0">
         
         <ul class="list-unstyled listIngredients">
@@ -84,7 +84,7 @@ class Render {
 
   // RENDER TAGS CONTENT
   tags(array) {
-    const styles = ['btn-primary', 'btn-success', 'btn-danger'];
+    const styles = ['btn-primary', 'btn-danger', 'btn-success'];
     const target = document.querySelector('.tagsContainer');
     target.innerHTML = '';
 
