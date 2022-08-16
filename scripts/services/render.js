@@ -14,6 +14,12 @@ class Render {
   recipes(array) {
     const target = document.querySelector('.recipesContainer');
     target.innerHTML = '';
+
+    if (array.length == 0) {
+      const msgError = document.createElement('p');
+      msgError.innerText = 'Aucune recette correspondante à la recherche';
+      target.appendChild(msgError);
+    }
     array.forEach((recipe) => {
       const element = document.createElement('div');
       element.setAttribute('class', 'card mb-4');
@@ -63,7 +69,9 @@ class Render {
       'dropdownMenuAppliances',
       'dropdownMenuUstensils',
     ];
-
+    if (array == null) {
+      return;
+    }
     array.forEach((list, i) => {
       const target = document.querySelector(`.${targets[i]}`);
       target.innerHTML = '';
@@ -100,6 +108,12 @@ class Render {
         tag.innerText = e;
         listeners.tags(tag, e);
         target.appendChild(tag);
+        const closeButton = document.createElement('i');
+        closeButton.setAttribute(
+          'class',
+          'fa-regular fa-circle-xmark ps-2 pe-2'
+        );
+        tag.appendChild(closeButton);
       });
     });
   }
