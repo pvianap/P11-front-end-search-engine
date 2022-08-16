@@ -16,7 +16,6 @@ class Controller {
   }
 
   recipeFilter(data, tags) {
-
     // return data.filter((value) =>
     //   tags.every((tag) =>
     //     JSON.stringify([value.name, ...value.ingredients, value.description])
@@ -24,10 +23,23 @@ class Controller {
     //       .includes(tag)
     //   )
     // );
-
+    const arrayResult = [];
     for (let i = 0; i < data.length; i++) {
-      
-      
+      for (let j = 0; j < tags.length; j++) {
+        if (
+          JSON.stringify([
+            data[i].name,
+            ...data[i].ingredients,
+            data[i].description,
+          ])
+            .toLowerCase()
+            .includes(tags[j])
+        ) {
+          arrayResult.push(data[i]);
+        }
+      }
+    }
+    return arrayResult;
   }
 
   recipeFilterTags(data, tags) {
