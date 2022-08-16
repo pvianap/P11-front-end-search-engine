@@ -16,13 +16,18 @@ class Controller {
   }
 
   recipeFilter(data, tags) {
-    return data.filter((value) =>
-      tags.every((tag) =>
-        JSON.stringify([value.name, ...value.ingredients, value.description])
-          .toLowerCase()
-          .includes(tag)
-      )
-    );
+
+    // return data.filter((value) =>
+    //   tags.every((tag) =>
+    //     JSON.stringify([value.name, ...value.ingredients, value.description])
+    //       .toLowerCase()
+    //       .includes(tag)
+    //   )
+    // );
+
+    for (let i = 0; i < data.length; i++) {
+      
+      
   }
 
   recipeFilterTags(data, tags) {
