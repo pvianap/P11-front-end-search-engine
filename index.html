@@ -25,7 +25,7 @@
     </header>
     <!-- SEARCH BAR -->
     <div class="searchBarContainer h-auto">
-      <form class="col-12 m-0 d-flex align-middle">
+      <form class="col m-0 d-flex align-middle">
         <input
           class="searchBarInput form-control m-0 align-middle"
           type="search"
@@ -39,7 +39,7 @@
     </div>
 
     <!-- TAGS -->
-    <div class="row tagsContainer mb-2">
+    <div class="row tagsContainer p-3">
       <button class="col-12 btn btn-primary btn-xs me-2" type="button">
         Coco<i class="fa-solid fa-circle-x"></i>
       </button>
@@ -51,25 +51,28 @@
       </button>
     </div>
     <!-- NEW BUTTONS -->
-    <ul class="buttonNavBar">
+    <ul
+      class="buttonNavBar p-0 d-flex flex-row flex-wrap justify-content-center justify-content-sm-start"
+    >
       <li class="nav-button">
         <div class="dropdown" data-dropdown>
-          <button class="link btn-primary" data-dropdown-button>
-            Ingredients
+          <button class="link btn-primary mb-3 me-3" data-dropdown-button>
+            Ingredients <i class="fa-solid fa-chevron-down"></i>
           </button>
           <div class="dropdown-menu contentGrid">
             <div>
               <div class="dropdown-heading">
-                <form class="searchButtonForm">
+                <form class="searchButtonForm d-flex align-items-center">
                   <input
                     type="text"
                     placeholder="Rechercher un ingrédient"
                     class="searchButtonInput"
                   />
+                  <i class="fa-solid fa-chevron-up"></i>
                 </form>
               </div>
               <ul
-                class="dropdown-links dropdownMenuIngredients"
+                class="dropdown-links d-flex flex-column d-md-grid dropdownMenuIngredients"
                 aria-labelledby="dropdownMenuIngredients"
               >
                 <li>Test</li>
@@ -80,22 +83,23 @@
       </li>
       <li class="nav-button">
         <div class="dropdown" data-dropdown>
-          <button class="link btn-danger" data-dropdown-button>
-            Appareils
+          <button class="link btn-danger mb-3 me-3" data-dropdown-button>
+            Appareils <i class="fa-solid fa-chevron-down"></i>
           </button>
           <div class="dropdown-menu contentGrid">
             <div>
               <div class="dropdown-heading">
-                <form class="searchButtonForm">
+                <form class="searchButtonForm d-flex align-items-center">
                   <input
                     type="text"
-                    placeholder="Rechercher un ingrédient"
+                    placeholder="Rechercher un appareil"
                     class="searchButtonInput"
                   />
+                  <i class="fa-solid fa-chevron-up"></i>
                 </form>
               </div>
               <ul
-                class="dropdown-links dropdownMenuAppliances"
+                class="dropdown-links d-flex flex-column d-md-grid dropdownMenuAppliances"
                 aria-labelledby="dropdownMenuAppliances"
               >
                 <li>Test</li>
@@ -107,17 +111,22 @@
       <li class="nav-button">
         <div class="dropdown" data-dropdown>
           <button class="link btn-success" data-dropdown-button>
-            Ustensiles
+            Ustensiles <i class="fa-solid fa-chevron-down"></i>
           </button>
           <div class="dropdown-menu contentGrid">
             <div>
               <div class="dropdown-heading">
-                <form class="searchButtonForm">
-                  <input type="text" class="searchButtonInput" />
+                <form class="searchButtonForm d-flex align-items-center">
+                  <input
+                    type="text"
+                    placeholder="Rechercher un ustensil"
+                    class="searchButtonInput"
+                  />
+                  <i class="fa-solid fa-chevron-up"></i>
                 </form>
               </div>
               <ul
-                class="dropdown-links dropdownMenuUstensils"
+                class="dropdown-links d-flex d-lg-grid flex-column dropdownMenuUstensils"
                 aria-labelledby="dropdownMenuUstensils"
               >
                 <li>Test</li>
@@ -127,80 +136,10 @@
         </div>
       </li>
     </ul>
-    <!-- SEARCH BUTTON
-    <div>
-      <form class="searchButtonForm">
-        <input type="text" class="searchButtonInput" />
-      </form>
-      <form class="searchButtonForm">
-        <input type="text" class="searchButtonInput" />
-      </form>
-      <form class="searchButtonForm">
-        <input type="text" class="searchButtonInput" />
-      </form>
-    </div> -->
-    <!-- NAVBAR
-    <nav class="navbar navbar-expand-sm navbar-light bg-light">
-      <div class="container-fluid">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <div class="dropdown">
-               <button
-                class="btn btn-primary dropdown-toggle"
-                type="button"
-                id="dropdownMenuIngredients"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Ingredients<i class="fa-solid fa-angle-down"></i>
-              </button>
-              <ul
-                class="dropdown-menu"
-                aria-labelledby="dropdownMenuIngredients"
-              ></ul> 
-            </div>
-          </li>
-          <li class="nav-item">
-            <div class="dropdown">
-              <button
-                class="btn btn-success dropdown-toggle dropdownMenuAppareils"
-                type="button"
-                id="dropdownMenuAppareils"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Appareils<i class="fa-solid fa-angle-down"></i>
-              </button>
-              <ul
-                class="dropdown-menu dropdownMenuAppliances"
-                aria-labelledby="dropdownMenuAppliances"
-              ></ul>
-            </div>
-          </li>
-          <li class="nav-item">
-            <div class="dropdown">
-              <button
-                class="btn btn-danger dropdown-toggle"
-                type="button"
-                id="dropdownMenuUstensiles"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Ustensiles<i class="fa-solid fa-angle-down"></i>
-              </button>
-              <ul
-                class="dropdown-menu dropdownMenuUstensils"
-                aria-labelledby="dropdownMenuUstensils"
-              ></ul>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </nav> -->
 
     <!-- RECIPES -->
     <section
-      class="recipesContainer container expand-lg d-flex flex-wrap justify-content-between"
+      class="recipesContainer container d-flex flex-wrap justify-content-center justify-content-lg-between p-0"
     >
       <div class="card col-3">
         <div class="row">

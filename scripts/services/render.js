@@ -21,23 +21,30 @@ class Render {
 
       recipe.ingredients.forEach((ingredient) => {
         listIngredients.push(
-          `<li>${ingredient.ingredient}: ${
+          `<li><span>${ingredient.ingredient}:</span><p> ${
             !isNaN(ingredient.quantity) ? ingredient.quantity : ''
-          } ${ingredient.unit ? ingredient.unit : ''}</li>`
+          } ${
+            ingredient.unit ? ingredient.unit : ''
+          }<p class="ingredient"></li>`
         );
       });
 
       const content = `
-      <img src="..." class="card-img-top imgCard" alt="...">
-      <div class="row card-body">
-        <div class="col">
-        <h5 class="row card-title">${recipe.name}</h5>
+      <div class="card-img-top imgCard" alt="..."></div>
+      <div class="row  card-body">
+        <div class="row flex-nowrap descriptionHeader "><h5 class="col-8">${
+          recipe.name
+        }</h5> <i class="fa-regular fa-clock"></i> <p>${
+        recipe.time
+      }min</p></div>
+        <div class="col-6 ps-0">
+        
         <ul class="list-unstyled listIngredients">
         ${listIngredients.join('')}
         </ul>
         </div>
         <div class="col-6">
-        <div class="row d-flex justify-content-end">${recipe.time}min</div>
+      
         <p class="row card-text">${recipe.description}
         </p>
         </div>
@@ -75,37 +82,6 @@ class Render {
     });
   }
 
-  // RENDER BUTTONS CONTENT
-  // buttons(array, tagArray) {
-  //   const targets = [
-  //     'dropdownMenuIngredients',
-  //     'dropdownMenuAppliances',
-  //     'dropdownMenuUstensils',
-  //   ];
-
-  //   array.forEach((list, i) => {
-  //     const target = document.querySelector(
-  //       `[aria-labelledby = "${targets[i]}"]`
-  //     );
-  //     target.innerHTML = '';
-  //     list.forEach((e) => {
-  //       if (!JSON.stringify(tagArray).toLowerCase().includes(e.toLowerCase())) {
-  //         const item = document.createElement('li');
-  //         const content = document.createElement('a');
-  //         content.innerText = e;
-  //         Object.assign(content, {
-  //           href: '#',
-  //           className: 'dropdown-item ',
-  //         });
-  //         item.appendChild(content);
-
-  //         listeners.buttons(item, e, i);
-  //         target.appendChild(item);
-  //       }
-  //     });
-  //   });
-  // }
-
   // RENDER TAGS CONTENT
   tags(array) {
     const styles = ['btn-primary', 'btn-success', 'btn-danger'];
@@ -118,7 +94,7 @@ class Render {
       type.forEach((e) => {
         const tag = document.createElement('button');
         Object.assign(tag, {
-          className: `col-12 btn ${style} btn-xs me-2`,
+          className: `btn w-auto ${style} btn-xs me-2 mb-2`,
           type: 'button',
         });
         tag.innerText = e;

@@ -1,4 +1,5 @@
 import { controller } from './controller.js';
+import { render } from './render.js';
 
 class Listeners {
   constructor() {
@@ -37,6 +38,7 @@ class Listeners {
       if (query.toLowerCase().trim().length > 2) {
         controller.refresh();
         controller.searchFilter([query.toLowerCase().trim()]);
+        render.buttons();
       } else {
         controller.refresh();
       }
