@@ -17,6 +17,8 @@ class Listeners {
     li.addEventListener('click', function () {
       Object.values(controller._tagArray)[i].push(e.toLowerCase());
       controller.refresh();
+      const search = document.querySelector('input');
+      controller.searchBar(search.value);
     });
   }
   tags(tag, e) {
@@ -26,8 +28,9 @@ class Listeners {
           (el) => el !== e
         );
       });
-
       controller.refresh();
+      const search = document.querySelector('input');
+      controller.searchBar(search.value);
     });
   }
   searchBar() {
@@ -38,12 +41,9 @@ class Listeners {
       if (query.toLowerCase().trim().length > 2) {
         controller.refresh();
         controller.searchFilter([query.toLowerCase().trim()]);
-        controller.refreshButtons();
-        render.buttons(controller._buttonArray, controller._tagArray);
+        render.buttons();
       } else {
         controller.refresh();
-        controller.refreshButtons();
-        render.buttons(controller._buttonArray, controller._tagArray);
       }
     });
   }

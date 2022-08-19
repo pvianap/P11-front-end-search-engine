@@ -58,39 +58,42 @@ class Controller {
 
     this._recipeArray = this.recipeFilterTags(data.getRecipes(), allTags);
 
-    // REFRESH BUTTONS using recipes
-    this.refreshButtons();
-
-    // REFRESH PAGE
-    render.all(this._recipeArray, this._buttonArray, this._tagArray);
-  }
-
-  refreshButtons() {
-    // REFRESH BUTTONS using recipes
+    // REFRESH BUTTONS
     this._buttonArray = [
       data.getIngredients(this._recipeArray),
       data.getAppliance(this._recipeArray),
       data.getUstensiles(this._recipeArray),
     ];
+
+    // REFRESH PAGE
+    render.all(this._recipeArray, this._buttonArray, this._tagArray);
   }
 
   searchFilter(query) {
-    controller.refresh();
     controller._recipeArray = controller.recipeFilter(
       controller._recipeArray,
       query
     );
     render.all(this._recipeArray, this._buttonArray, this._tagArray);
   }
+
+  searchBar(query) {
+    if (query.toLowerCase().trim().length > 2) {
+      this.refresh();
+      this.searchFilter([query.toLowerCase().trim()]);
+      this.refreshButtons();
+      render.buttons(this._buttonArray, this._tagArray);
+    } else {
+      this.refresh();
+      this.refreshButtons();
+      render.buttons(this._buttonArray, this._tagArray);
+    }
+  }
+
   searchButton(query, index) {
-    console.log(this._buttonArray);
     const array = [];
     array[index] = this._buttonArray[index].filter((e) =>
       e.toLowerCase().includes(query)
-    );
-    console.log(array);
-    console.log(
-      this._buttonArray[index].filter((e) => e.toLowerCase().includes(query))
     );
     render.buttons(array, this._tagArray);
   }
