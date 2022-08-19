@@ -83,10 +83,6 @@ class Controller {
     array[index] = this._buttonArray[index].filter((e) =>
       e.toLowerCase().includes(query)
     );
-    console.log(array);
-    console.log(
-      this._buttonArray[index].filter((e) => e.toLowerCase().includes(query))
-    );
     render.buttons(array, this._tagArray);
   }
 }
