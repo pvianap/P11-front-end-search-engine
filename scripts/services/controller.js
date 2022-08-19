@@ -65,6 +65,7 @@ class Controller {
     render.all(this._recipeArray, this._buttonArray, this._tagArray);
   }
 
+  // SEARCH BAR
   searchBar(query) {
     if (query.toLowerCase().trim().length > 2) {
       this.refresh();
