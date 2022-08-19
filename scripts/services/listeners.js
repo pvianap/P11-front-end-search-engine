@@ -38,9 +38,12 @@ class Listeners {
       if (query.toLowerCase().trim().length > 2) {
         controller.refresh();
         controller.searchFilter([query.toLowerCase().trim()]);
-        render.buttons();
+        controller.refreshButtons();
+        render.buttons(controller._buttonArray, controller._tagArray);
       } else {
         controller.refresh();
+        controller.refreshButtons();
+        render.buttons(controller._buttonArray, controller._tagArray);
       }
     });
   }
