@@ -17,6 +17,8 @@ class Listeners {
     li.addEventListener('click', function () {
       Object.values(controller._tagArray)[i].push(e.toLowerCase());
       controller.refresh();
+      const search = document.querySelector('input');
+      controller.searchBar(search.value);
     });
   }
   tags(tag, e) {
@@ -34,17 +36,7 @@ class Listeners {
     const search = document.querySelector('input');
     search.addEventListener('keyup', (e) => {
       const query = e.target.value;
-
-      if (query.toLowerCase().trim().length > 2) {
-        controller.refresh();
-        controller.searchFilter([query.toLowerCase().trim()]);
-        controller.refreshButtons();
-        render.buttons(controller._buttonArray, controller._tagArray);
-      } else {
-        controller.refresh();
-        controller.refreshButtons();
-        render.buttons(controller._buttonArray, controller._tagArray);
-      }
+      controller.searchBar(query);
     });
   }
   searchButton() {
