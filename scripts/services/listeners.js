@@ -37,14 +37,7 @@ class Listeners {
     const search = document.querySelector('input');
     search.addEventListener('keyup', (e) => {
       const query = e.target.value;
-
-      if (query.toLowerCase().trim().length > 2) {
-        controller.refresh();
-        controller.searchFilter([query.toLowerCase().trim()]);
-        render.buttons();
-      } else {
-        controller.refresh();
-      }
+      controller.searchBar(query);
     });
   }
   searchButton() {

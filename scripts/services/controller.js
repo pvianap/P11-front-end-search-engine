@@ -25,6 +25,7 @@ class Controller {
     // );
     const arrayResult = [];
     for (let i = 0; i < data.length; i++) {
+      let sum = 0;
       for (let j = 0; j < tags.length; j++) {
         if (
           JSON.stringify([
@@ -35,8 +36,11 @@ class Controller {
             .toLowerCase()
             .includes(tags[j])
         ) {
-          arrayResult.push(data[i]);
+          sum++;
         }
+      }
+      if (sum == tags.length) {
+        arrayResult.push(data[i]);
       }
     }
     return arrayResult;
@@ -58,15 +62,20 @@ class Controller {
 
     this._recipeArray = this.recipeFilterTags(data.getRecipes(), allTags);
 
-    // REFRESH BUTTONS
+    // REFRESH BUTTONS using recipes
+    this.refreshButtons();
+
+    // REFRESH PAGE
+    render.all(this._recipeArray, this._buttonArray, this._tagArray);
+  }
+
+  refreshButtons() {
+    // REFRESH BUTTONS using recipes
     this._buttonArray = [
       data.getIngredients(this._recipeArray),
       data.getAppliance(this._recipeArray),
       data.getUstensiles(this._recipeArray),
     ];
-
-    // REFRESH PAGE
-    render.all(this._recipeArray, this._buttonArray, this._tagArray);
   }
 
   searchFilter(query) {
