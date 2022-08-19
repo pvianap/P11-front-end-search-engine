@@ -28,8 +28,9 @@ class Listeners {
           (el) => el !== e
         );
       });
-
       controller.refresh();
+      const search = document.querySelector('input');
+      controller.searchBar(search.value);
     });
   }
   searchBar() {
