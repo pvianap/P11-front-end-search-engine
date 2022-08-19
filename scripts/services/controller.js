@@ -49,7 +49,7 @@ class Controller {
   }
 
   refresh() {
-    // REFRESH RECIPE ARRAY
+    // REFRESH RECIPE ARRAY using Tags
     const allTags = [].concat(
       this._tagArray.ingredients,
       this._tagArray.ustensils,
@@ -58,15 +58,20 @@ class Controller {
 
     this._recipeArray = this.recipeFilterTags(data.getRecipes(), allTags);
 
-    // REFRESH BUTTONS
+    // REFRESH BUTTONS using recipes
+    this.refreshButtons();
+
+    // REFRESH PAGE
+    render.all(this._recipeArray, this._buttonArray, this._tagArray);
+  }
+
+  refreshButtons() {
+    // REFRESH BUTTONS using recipes
     this._buttonArray = [
       data.getIngredients(this._recipeArray),
       data.getAppliance(this._recipeArray),
       data.getUstensiles(this._recipeArray),
     ];
-
-    // REFRESH PAGE
-    render.all(this._recipeArray, this._buttonArray, this._tagArray);
   }
 
   searchFilter(query) {
