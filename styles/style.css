@@ -21,7 +21,6 @@ h1 {
 }
 
 .fa-magnifying-glass {
-  position: block;
   font-size: 32px;
   margin-left: -60px;
 }
@@ -75,7 +74,6 @@ i {
 }
 
 .searchButtonInput {
-  position: block;
   background-color: transparent;
   color: white;
   border: none;
